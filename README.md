@@ -1,4 +1,4 @@
-**# 🌟 Data Engineering & ML Portfolio
+# 🌟 Data Engineering & ML Portfolio
 
 Este repositorio recopila mi experiencia en **Ingeniería de Datos**, **Machine Learning** y **Deep Learning**, combinando proyectos realizados durante mi **internship en Globant** junto con proyectos de aprendizaje y cursos.  
 El objetivo es documentar mi crecimiento, mostrar mis habilidades técnicas y servir como portafolio profesional.
@@ -40,4 +40,3 @@ Además del internship, complemento mi portafolio con proyectos de cursos y auto
  ┣ 📁 dl-projects/            # Proyectos de deep learning (CNN, RNN, LSTM, etc.)
  ┣ 📄 requirements.txt        # Dependencias
  ┗ 📄 README.md               # Documentación principal
-**
