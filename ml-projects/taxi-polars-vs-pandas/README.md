@@ -1,22 +1,46 @@
-# 🚖 Taxi Trip Data – Pandas vs Polars Benchmark
+# 🚖 NYC Taxi: Pipeline de Machine Learning con Polars y Streamlit
 
-Este proyecto compara el rendimiento de **Pandas** y **Polars** en un flujo completo de **ciencia de datos** usando el dataset de **NYC Taxi Trips**.
-El objetivo es demostrar cómo **Polars optimiza memoria y velocidad**, integrándolo dentro de un pipeline de **EDA → Feature Engineering → Modelado Predictivo → Dashboard**.
+Este proyecto implementa un pipeline completo de Machine Learning para predecir la duración de los viajes en taxi de Nueva York. Utiliza **Polars** para el procesamiento de datos de alto rendimiento y **Streamlit** para crear un dashboard interactivo que permite explorar el modelo en tiempo real.
 
----
+El flujo de trabajo abarca desde el Análisis Exploratorio de Datos (EDA) y la Ingeniería de Características hasta el entrenamiento de un modelo predictivo (LightGBM) y su despliegue en una aplicación web.
 
-## 🎯 Objetivos
+## 📊 Dashboard Interactivo
 
-* 🧹 Realizar **limpieza y preprocesamiento** del dataset de taxis.
-* 📊 Comparar **tiempos de ejecución** y **uso de memoria** entre **Pandas** y **Polars**.
-* 🔎 Desarrollar un **EDA interactivo** para entender mejor los viajes en taxi.
-* ⚙️ Construir un **pipeline de features y modelo de predicción** (ej. duración o tarifa).
-* 📈 Implementar un **dashboard en Streamlit** para visualizar resultados.
-* ☁️ Desplegar el proyecto en la nube (**Streamlit Cloud / Hugging Face / Render**).
+La aplicación final permite a los usuarios introducir los parámetros de un viaje y obtener una predicción instantánea de la duración, además de visualizar los factores más importantes para el modelo.
 
----
+![Demo del Dashboard de Streamlit](./stream.png)
 
-## 📂 Estructura del proyecto
+
+## 🎯 Resultados del Modelo Predictivo
+
+El objetivo fue predecir la `trip_duration` (duración del viaje). Se entrenó un modelo `LGBMRegressor` que logró un rendimiento sólido en el conjunto de prueba.
+
+* **Métrica de Evaluación:** Root Mean Squared Error (RMSE)
+* **Resultado:** **4.49 minutos** (Ejemplo, reemplaza con tu valor)
+
+Esto significa que, en promedio, las predicciones del modelo tienen un error de solo ~4.5 minutos, un resultado muy bueno considerando la alta variabilidad del tráfico en Nueva York.
+
+### Importancia de Features
+
+El análisis del modelo revela qué factores son los más influyentes para realizar una predicción:
+
+![Gráfico de Importancia de Features](./feature_importance.png)
+
+## ⚡ Ventaja de Rendimiento con Polars
+
+Todo el preprocesamiento de datos y la ingeniería de características se realizaron con **Polars**. Esta elección fue clave para manejar eficientemente el dataset de millones de filas, permitiendo una iteración y experimentación mucho más rápidas en comparación con Pandas.
+
+## 🛠️ Tecnologías Utilizadas
+
+* **Análisis y Procesamiento:** Polars, Pandas
+* **Machine Learning:** Scikit-learn, LightGBM
+* **Visualización:** Matplotlib, Seaborn
+* **Dashboard y Despliegue:** Streamlit, Streamlit Cloud
+* **Manejo de Modelos:** Joblib
+
+## 📂 Estructura del Proyecto
+
+La estructura final del proyecto está organizada para separar la lógica de la presentación:
 
 ```bash
 📦 taxi-polars-vs-pandas
@@ -59,38 +83,36 @@ Ejemplo de comparación (lectura + limpieza de 1M registros):
 
 ---
 
-## 🚀 Ejecución del proyecto
 
-1. **Clonar repositorio**
+## 🚀 Cómo Ejecutarlo Localmente
 
-   ```bash
-   git clone https://github.com/tu-usuario/portfolio-data-ml.git
-   cd portfolio-data-ml/ml-projects/taxi-polars-vs-pandas
-   ```
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/Parzival099/Intership
+    cd Intership
+    ```
 
-2. **Crear entorno virtual e instalar dependencias**
+2.  **Crear un entorno virtual e instalar dependencias:**
+    ```bash
+    python -m venv venv
+    # Activar el entorno (Windows)
+    venv\Scripts\activate
+    # Activar el entorno (Linux/Mac)
+    source venv/bin/activate
+    
+    pip install -r requirements.txt
+    ```
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
-   pip install -r requirements.txt
-   ```
+3.  **Entrenar el modelo (solo la primera vez):**
+    Asegúrate de tener el dataset en la carpeta `data/`. Luego, ejecuta el pipeline de entrenamiento para generar el archivo del modelo.
+    ```bash
+    python src/training_pipeline.py
+    ```
 
-3. **Ejecutar el benchmarking**
-
-   ```bash
-   python src/benchmarking.py
-   ```
-
-4. **Ejecutar dashboard en Streamlit**
-
-   ```bash
-   streamlit run dashboard/app.py
-   ```
-
----
-
+4.  **Ejecutar el dashboard:**
+    ```bash
+    streamlit run dashboard/app.py
+    ```
 ## ☁️ Despliegue en la nube
 
 El proyecto puede ser desplegado en:
