@@ -1,8 +1,9 @@
-pandas
 polars
-matplotlib
-seaborn
+pandas
 scikit-learn
 lightgbm
-joblib
+seaborn
+matplotlib
 streamlit
+joblib
+fastparquet
