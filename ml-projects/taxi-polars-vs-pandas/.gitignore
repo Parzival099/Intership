@@ -1,0 +1,18 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Archivos de Jupyter Notebook
+.ipynb_checkpoints/
+
+# Datos (opcional, si el archivo es muy grande)
+# Si tu archivo .parquet es mayor a 100MB, es mejor no subirlo
+data/*.parquet
+
+# Modelos (opcional, si el archivo es muy grande)
+# Si tu modelo .joblib es mayor a 100MB, usa Git LFS o no lo subas
+models/*.joblib
