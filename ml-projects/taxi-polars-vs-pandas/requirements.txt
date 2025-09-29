@@ -1,1 +1,8 @@
-In process
+pandas
+polars
+matplotlib
+seaborn
+scikit-learn
+lightgbm
+joblib
+streamlit
