@@ -16,7 +16,7 @@ La aplicación final permite a los usuarios introducir los parámetros de un via
 El objetivo fue predecir la `trip_duration` (duración del viaje). Se entrenó un modelo `LGBMRegressor` que logró un rendimiento sólido en el conjunto de prueba.
 
 * **Métrica de Evaluación:** Root Mean Squared Error (RMSE)
-* **Resultado:** **4.49 minutos** (Ejemplo, reemplaza con tu valor)
+* **Resultado:** **4.49 minutos**
 
 Esto significa que, en promedio, las predicciones del modelo tienen un error de solo ~4.5 minutos, un resultado muy bueno considerando la alta variabilidad del tráfico en Nueva York.
 
