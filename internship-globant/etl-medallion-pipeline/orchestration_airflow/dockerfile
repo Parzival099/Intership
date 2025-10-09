@@ -1,0 +1,11 @@
+FROM jupyter/pyspark-notebook:latest
+USER root
+
+# Descargamos el driver de MySQL
+RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar -P /usr/local/spark/jars/
+
+# Descargamos los drivers de Delta Lake (el principal y su dependencia)
+RUN wget https://repo1.maven.org/maven2/io/delta/delta-spark_2.12/3.2.0/delta-spark_2.12-3.2.0.jar -P /usr/local/spark/jars/
+RUN wget https://repo1.maven.org/maven2/io/delta/delta-storage/3.2.0/delta-storage-3.2.0.jar -P /usr/local/spark/jars/ 
+
+USER jovyan
