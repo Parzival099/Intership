@@ -1,0 +1,35 @@
+services:
+  jupyter-spark:
+    container_name: jupyter_spark_lab
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8890:8888"   # Jupyter visible en localhost:8890
+    networks:
+      - sparknet
+    depends_on:
+      - mysql-db
+    environment:
+      - JUPYTER_TOKEN=      # sin token
+      - JUPYTER_PASSWORD=   # sin contraseña
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - .:/home/jovyan/work
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: importar
+    ports:
+      - "3307:3306"   # expone MySQL en localhost:3307
+    networks:
+      - sparknet
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  sparknet:
+    driver: bridge
