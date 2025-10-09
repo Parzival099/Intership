@@ -1,0 +1,12 @@
+# Archivos de datos y credenciales
+init.sql
+.env
+
+# Carpetas de datos generadas
+bronze/
+silver/
+gold/
+
+# Carpetas de entorno de Python
+venv/
+__pycache__/
