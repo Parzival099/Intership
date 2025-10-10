@@ -38,6 +38,7 @@ Además del internship, complemento mi portafolio con proyectos de cursos y auto
  ┣ 📁 internship-globant/     # Ejercicios y ejemplos de Data Engineering
  ┣ 📁 ml-projects/            # Proyectos de Machine Learning (cada carpeta = un proyecto)
  ┣ 📁 dl-projects/            # Proyectos de Deep Learning (CNN, RNN, LSTM, etc.)
+ ┣ 📁 playground              # Proyectos realizadas antes del intership
  ┣ 📄 requirements.txt        # Dependencias generales
  ┗ 📄 README.md               # Documentación principal
 ```
