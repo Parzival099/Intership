@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Integrada en Azure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(44, 62, 80, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #1abc9c;
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* --- INICIO DE CAMBIOS --- */
+        img {
+            max-width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #1abc9c;
+            margin-bottom: 20px;
+        }
+
+        .secrets {
+            background: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+            border: 1px solid #7f8c8d;
+        }
+        /* --- FIN DE CAMBIOS --- */
+
+        .server-time {
+            font-size: 1em;
+            color: #bdc3c7;
+            margin-top: 30px;
+            border-top: 1px solid #7f8c8d;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <img src="https://intentopythonsa01.blob.core.windows.net/img/descarga.jpg" alt="Logo desde Azure Storage">
+        
+        <h1>{{ titulo }}</h1>
+        <p>Esta aplicación se está ejecutando en Azure App Service.</p>
+        
+        <div class="secrets">
+            <strong>Secretos de Key Vault (Variables de Entorno):</strong><br>
+            - Usuario DB: <strong>{{ db_user }}</strong><br>
+            - Contraseña DB: <strong>{{ db_pass }}</strong>
+        </div>
+
+        <div class="server-time">
+            <strong>Hora del Servidor:</strong> {{ server_time }}
+        </div>
+    </div>
+</body>
+</html>
